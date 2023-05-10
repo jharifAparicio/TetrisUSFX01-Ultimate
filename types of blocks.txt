@@ -1,0 +1,7 @@
+types of blocks
+
+ block metal (desciende y destruye el bloque se encuentra abajo del mismo).
+ block TNT (explota al tener 3 o mas blocks encima, radio de 3 blocks).
+ block feather (se mueve rapido a los costados y desiende lento).
+ block Stone (desciende hasta abajo siempre y cuando exista posibilidad).
+ block rebound (rebota 1 o 2 bloques a los lados aleatoriamente).
