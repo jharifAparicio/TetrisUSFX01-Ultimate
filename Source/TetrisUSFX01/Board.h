@@ -57,5 +57,6 @@ private:
 
 	bool CheckGameOver();
 
+	//patron singleton
 	static ABoard *Instance;
 };

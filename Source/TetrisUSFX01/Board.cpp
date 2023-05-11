@@ -6,9 +6,10 @@
 #include "DrawDebugHelpers.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
-// Sets default values
+//patron singleton
 ABoard* ABoard::Instance = nullptr;
 
+// Sets default values
 ABoard::ABoard() {
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
