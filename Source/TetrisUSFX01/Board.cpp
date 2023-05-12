@@ -6,6 +6,7 @@
 #include "DrawDebugHelpers.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
+
 //patron singleton
 ABoard* ABoard::Instance = nullptr;
 
