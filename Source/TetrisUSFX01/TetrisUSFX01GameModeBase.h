@@ -27,13 +27,13 @@ public:
 
 	UFUNCTION()
 	void DestroyActorFunction();
+private:
+
+	class ATNTPieceBuilder* TNTBuilder;
+
+	class AArchitecturalEngineer* Engineer;
 
 	virtual void Tick(float DeltaTime) override;
 private:
 	float siguientePosicionZ;
-
-
-		class ATNTPieceBuilder* TNTBuilder;
-		
-		class AArchitecturalEngineer* Engineer;
 };

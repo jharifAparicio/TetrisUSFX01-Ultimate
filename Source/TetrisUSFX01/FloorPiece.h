@@ -25,5 +25,4 @@ public:
 	virtual void SetMaterial(FString _Material) = 0;
 	virtual void SetNumBlocks(FString _NumBlocks) = 0;
 	virtual void SetNamePiece (FString NamePiece) = 0;
-
 };

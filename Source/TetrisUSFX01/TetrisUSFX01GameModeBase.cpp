@@ -2,12 +2,12 @@
 
 
 #include "TetrisUSFX01GameModeBase.h"
-#include "Board.h"
 
-#include "PieceBuilder.h"
+#include "TNTPieceBuilder.h"
 #include "ArchitecturalEngineer.h"
 #include "Piece2.h"
 
+#include "Board.h"
 #include "Camera/CameraActor.h"
 #include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"
@@ -37,10 +37,12 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 
 
 
-	TNTBuilder = GetWorld ()->SpawnActor<ATNTPieceBuilder> (APiece2::StaticClass());
+	TNTBuilder = GetWorld ()->SpawnActor<ATNTPieceBuilder> (ATNTPieceBuilder::StaticClass());
 	Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
+	
 	Engineer->SetPieceBuilder(TNTBuilder);
-	Engineer->ConstructPiece ();
+	Engineer->ConstructPiece();
+	
 	APiece2 *Piece2 = Engineer->GetPiece2();
 	Piece2->Piece2Characteristics();
 

@@ -16,7 +16,7 @@ public:
 	AArchitecturalEngineer ();
 
 private:
-	IPieceBuilder* PieceBuilder;
+	IPieceBuilder* PieceBuilder2;
 
 protected:
 	// Called when the game starts or when spawned
