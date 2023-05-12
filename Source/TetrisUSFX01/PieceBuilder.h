@@ -26,5 +26,5 @@ public:
 	virtual void BuildNumBlocks () = 0;
 	virtual void BuildNamePiece () = 0;
 
-	virtual class APiece* GetPiece () = 0;
+	virtual class APiece2* GetPiece2() = 0;
 };

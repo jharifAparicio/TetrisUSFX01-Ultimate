@@ -32,4 +32,8 @@ public:
 private:
 	float siguientePosicionZ;
 
+
+		class ATNTPieceBuilder* TNTBuilder;
+		
+		class AArchitecturalEngineer* Engineer;
 };

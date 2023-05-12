@@ -33,12 +33,13 @@ void APiece2::SetNamePiece (FString _NamePiece) {
 	NamePiece = _NamePiece;
 }
 
-void APiece2::SetNumBlocks (float _NumBlocks) {
+void APiece2::SetNumBlocks (FString _NumBlocks) {
 	NumBlocks = _NumBlocks;
 }
 
-void APiece2::Piece2Characteristicas () {
+void APiece2::Piece2Characteristics () {
 	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("%s"), *Material));
-	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("%s"),*NamePiece));
+	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("%s"), *NamePiece));
+	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("%s"), *NumBlocks));
 }
 

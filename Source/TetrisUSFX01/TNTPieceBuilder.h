@@ -30,5 +30,5 @@ public:
 	virtual void BuildNumBlocks() override;
 	virtual void BuildNamePiece() override;
 
-	virtual class APiece* GetPiece() override;
+	virtual class APiece2* GetPiece2() override;
 };

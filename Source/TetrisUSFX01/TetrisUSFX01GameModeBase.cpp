@@ -3,51 +3,59 @@
 
 #include "TetrisUSFX01GameModeBase.h"
 #include "Board.h"
+
+#include "PieceBuilder.h"
+#include "ArchitecturalEngineer.h"
+#include "Piece2.h"
+
 #include "Camera/CameraActor.h"
 #include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"
 
-ATetrisUSFX01GameModeBase::ATetrisUSFX01GameModeBase() {
-     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-    PrimaryActorTick.bCanEverTick = true;
-    DefaultPawnClass = ABoard::StaticClass();
-    siguientePosicionZ = 0;
+ATetrisUSFX01GameModeBase::ATetrisUSFX01GameModeBase () {
+	 // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+	DefaultPawnClass = ABoard::StaticClass ();
+	siguientePosicionZ = 0;
 }
 
-void ATetrisUSFX01GameModeBase::BeginPlay()
-{
-    // Call the parent class version of this function
-    Super::BeginPlay();
+void ATetrisUSFX01GameModeBase::BeginPlay () {
+	// Call the parent class version of this function
+	Super::BeginPlay ();
 
-    //patron singleton
-    ABoard *BoardInstance = ABoard::GetInstance ();
+	//patron singleton
+	ABoard *BoardInstance = ABoard::GetInstance ();
 
-    for (TActorIterator<ACameraActor> it(GetWorld()); it; ++it)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Find camera: %s"), *(it->GetFName().ToString()));
-        if (it->GetFName() == TEXT("BoardCamera"))
-        {
-            APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
-            PC->SetViewTargetWithBlend(*it, 0.5);
-            break;
-        }
-    }
+	for (TActorIterator<ACameraActor> it (GetWorld ()); it; ++it) {
+		UE_LOG (LogTemp, Warning, TEXT ("Find camera: %s"), *(it->GetFName ().ToString ()));
+		if (it->GetFName () == TEXT ("BoardCamera")) {
+			APlayerController *PC = UGameplayStatics::GetPlayerController (this, 0);
+			PC->SetViewTargetWithBlend (*it, 0.5);
+			break;
+		}
+	}
+
+
+
+	TNTBuilder = GetWorld ()->SpawnActor<ATNTPieceBuilder> (APiece2::StaticClass());
+	Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
+	Engineer->SetPieceBuilder(TNTBuilder);
+	Engineer->ConstructPiece ();
+	APiece2 *Piece2 = Engineer->GetPiece2();
+	Piece2->Piece2Characteristics();
 
 }
 
 // Called every frame
-void ATetrisUSFX01GameModeBase::Tick(float DeltaTime)
-{
-    Super::Tick(DeltaTime);
+void ATetrisUSFX01GameModeBase::Tick (float DeltaTime) {
+	Super::Tick (DeltaTime);
 }
 
 
-void ATetrisUSFX01GameModeBase::DestroyActorFunction()
-{
-	if (SpawnedActor != nullptr)
-   {
-      // Displays a red message on the screen for 10 seconds
-      GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Red, TEXT("Actor Block destruido"));
-      SpawnedActor->Destroy();
-   }
+void ATetrisUSFX01GameModeBase::DestroyActorFunction () {
+	if (SpawnedActor != nullptr) {
+	  // Displays a red message on the screen for 10 seconds
+		GEngine->AddOnScreenDebugMessage (-1, 10, FColor::Red, TEXT ("Actor Block destruido"));
+		SpawnedActor->Destroy ();
+	}
 }

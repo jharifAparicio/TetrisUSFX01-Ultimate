@@ -18,7 +18,7 @@ public:
 private:
 	FString Material;
 	FString NamePiece;
-	float NumBlocks;
+	FString NumBlocks;
 
 protected:
 	// Called when the game starts or when spawned
@@ -30,8 +30,8 @@ public:
 
 	virtual void SetMaterial (FString _Material);
 	virtual void SetNamePiece (FString _NamePiece);
-	virtual void SetNumBlocks (float _NumBlocks);
+	virtual void SetNumBlocks (FString _NumBlocks);
 	
 
-	void Piece2Characteristicas ();
+	void Piece2Characteristics ();
 };
