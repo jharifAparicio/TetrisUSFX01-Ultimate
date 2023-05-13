@@ -15,15 +15,14 @@ void AStonePieceBuilder::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	Piece2 = GetWorld ()->SpawnActor<APiece2> (APiece2::StaticClass ());
+	Piece2->AttachToActor (this, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 // Called every frame
 void AStonePieceBuilder::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	Piece2 = GetWorld ()->SpawnActor<APiece2> (APiece2::StaticClass ());
-	Piece2->AttachToActor (this, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void AStonePieceBuilder::BuildMaterial () {

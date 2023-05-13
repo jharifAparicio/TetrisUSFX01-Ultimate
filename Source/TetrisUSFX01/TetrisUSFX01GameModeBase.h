@@ -35,11 +35,7 @@ private:
 	class AStonePieceBuilder* StoneBuilder;
 	class AWoodPieceBuilder* WoodBuilder;
 
-	class AArchitecturalEngineer* EngineerTNT;
-	class AArchitecturalEngineer* EngineerIce;
-	class AArchitecturalEngineer* EngineerMetal;
-	class AArchitecturalEngineer* EngineerStone;
-	class AArchitecturalEngineer* EngineerWood;
+	class AArchitecturalEngineer* Engineer;
 
 	virtual void Tick(float DeltaTime) override;
 private:

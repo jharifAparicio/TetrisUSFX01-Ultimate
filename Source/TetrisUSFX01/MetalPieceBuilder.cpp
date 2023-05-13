@@ -16,6 +16,8 @@ AMetalPieceBuilder::AMetalPieceBuilder()
 void AMetalPieceBuilder::BeginPlay()
 {
 	Super::BeginPlay();
+	Piece2 = GetWorld ()->SpawnActor<APiece2> (APiece2::StaticClass ());
+	Piece2->AttachToActor (this, FAttachmentTransformRules::KeepRelativeTransform);
 	
 }
 
@@ -23,9 +25,6 @@ void AMetalPieceBuilder::BeginPlay()
 void AMetalPieceBuilder::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	Piece2 = GetWorld ()->SpawnActor<APiece2> (APiece2::StaticClass ());
-	Piece2->AttachToActor (this, FAttachmentTransformRules::KeepRelativeTransform);
 
 }
 

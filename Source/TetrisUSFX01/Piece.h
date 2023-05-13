@@ -55,7 +55,7 @@ public:
 	void SpawnPieces();
 	
 	//creamos un array para los colores de los bloques
-		TArray<class UMaterial*> Colors;
+	TArray<class UMaterial*> Colors;
 private:
 	// creamos un array para los bloques de la pieza creada
 	TArray<ABlock*> Blocks;
