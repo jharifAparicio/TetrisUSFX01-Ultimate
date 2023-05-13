@@ -17,9 +17,6 @@ void ATNTPieceBuilder::BeginPlay () {
 
 	Piece2 = GetWorld ()->SpawnActor<APiece2>(APiece2::StaticClass ());
 	Piece2->AttachToActor (this,FAttachmentTransformRules::KeepRelativeTransform);
-
-
-
 }
 
 // Called every frame

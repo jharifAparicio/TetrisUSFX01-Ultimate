@@ -4,6 +4,11 @@
 #include "TetrisUSFX01GameModeBase.h"
 
 #include "TNTPieceBuilder.h"
+#include "IcePieceBuilder.h"
+#include "MetalPieceBuilder.h"
+#include "StonePieceBuilder.h"
+#include "WoodPieceBuilder.h"
+
 #include "ArchitecturalEngineer.h"
 #include "Piece2.h"
 
@@ -38,13 +43,47 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 
 
 	TNTBuilder = GetWorld ()->SpawnActor<ATNTPieceBuilder> (ATNTPieceBuilder::StaticClass());
-	Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
-	
-	Engineer->SetPieceBuilder(TNTBuilder);
-	Engineer->ConstructPiece();
-	
-	APiece2 *Piece2 = Engineer->GetPiece2();
-	Piece2->Piece2Characteristics();
+	IceBuilder = GetWorld ()->SpawnActor<AIcePieceBuilder> (AIcePieceBuilder::StaticClass());
+	MetalBuilder = GetWorld ()->SpawnActor<AMetalPieceBuilder> (AMetalPieceBuilder::StaticClass());
+	StoneBuilder = GetWorld ()->SpawnActor<AStonePieceBuilder> (AStonePieceBuilder::StaticClass());
+	WoodBuilder = GetWorld ()->SpawnActor<AWoodPieceBuilder> (AWoodPieceBuilder::StaticClass());
+
+
+	EngineerTNT = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
+	EngineerIce = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
+	EngineerMetal = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
+	EngineerStone = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
+	EngineerWood = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
+
+	////pieza de TNT
+	//EngineerTNT->SetPieceBuilder (TNTBuilder);
+	//EngineerTNT->ConstructPiece ();
+	//APiece2* Piece2TNT = EngineerTNT->GetPiece2 ();
+	//Piece2TNT->Piece2Characteristics ();
+
+	////pieza de hielo
+	//EngineerIce->SetPieceBuilder (IceBuilder);
+	//EngineerIce->ConstructPiece ();
+	//APiece2* Piece2Ice = EngineerIce->GetPiece2 ();
+	//Piece2Ice->Piece2Characteristics ();
+
+	//pieza de metal
+	EngineerMetal->SetPieceBuilder (MetalBuilder);
+	EngineerMetal->ConstructPiece ();
+	APiece2* Piece2Metal = EngineerMetal->GetPiece2 ();
+	Piece2Metal->Piece2Characteristics ();
+
+	////pieza de piedra
+	//EngineerStone->SetPieceBuilder (StoneBuilder);
+	//EngineerStone->ConstructPiece ();
+	//APiece2 *Piece2Stone = EngineerStone->GetPiece2 ();
+	//Piece2Stone->Piece2Characteristics ();
+
+	////pieza de madera
+	//EngineerWood->SetPieceBuilder (WoodBuilder);
+	//EngineerWood->ConstructPiece ();
+	//APiece2 *Piece2Wood = EngineerWood->GetPiece2 ();
+	//Piece2Wood->Piece2Characteristics ();
 
 }
 

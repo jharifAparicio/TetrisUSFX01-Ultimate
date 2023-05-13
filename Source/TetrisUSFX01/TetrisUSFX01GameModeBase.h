@@ -30,8 +30,16 @@ public:
 private:
 
 	class ATNTPieceBuilder* TNTBuilder;
+	class AIcePieceBuilder* IceBuilder;
+	class AMetalPieceBuilder* MetalBuilder;
+	class AStonePieceBuilder* StoneBuilder;
+	class AWoodPieceBuilder* WoodBuilder;
 
-	class AArchitecturalEngineer* Engineer;
+	class AArchitecturalEngineer* EngineerTNT;
+	class AArchitecturalEngineer* EngineerIce;
+	class AArchitecturalEngineer* EngineerMetal;
+	class AArchitecturalEngineer* EngineerStone;
+	class AArchitecturalEngineer* EngineerWood;
 
 	virtual void Tick(float DeltaTime) override;
 private:
