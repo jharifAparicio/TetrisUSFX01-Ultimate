@@ -27,6 +27,7 @@ public:
 
 	UFUNCTION()
 	void DestroyActorFunction();
+
 private:
 
 	class ATNTPieceBuilder* TNTBuilder;
