@@ -29,13 +29,7 @@ public:
 	void DestroyActorFunction();
 private:
 
-	class ATNTPieceBuilder* TNTBuilder;
-	class AIcePieceBuilder* IceBuilder;
-	class AMetalPieceBuilder* MetalBuilder;
-	class AStonePieceBuilder* StoneBuilder;
-	class AWoodPieceBuilder* WoodBuilder;
-
-	class AArchitecturalEngineer* Engineer;
+	
 
 	virtual void Tick(float DeltaTime) override;
 private:

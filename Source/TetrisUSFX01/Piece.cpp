@@ -7,6 +7,14 @@
 #include "DrawDebugHelpers.h"
 #include <vector>
 #include "Sound/SoundCue.h"
+//
+//#include "TNTPieceBuilder.h"
+//#include "IcePieceBuilder.h"
+//#include "MetalPieceBuilder.h"
+//#include "StonePieceBuilder.h"
+//#include "WoodPieceBuilder.h"
+//#include "ArchitecturalEngineer.h"
+//#include "Piece2.h"
 
 
 // carga los valores inicales de la pieza
@@ -18,36 +26,54 @@ APiece::APiece() {
 	SceneComponent = CreateDefaultSubobject<USceneComponent>("Pieces Scene");
 	RootComponent = SceneComponent;
 
-	struct FConstructorStatics
-	{
-		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_0;
+	struct FConstructorStatics {
+		/*ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_0;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_1;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_2;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_3;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_4;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_5;
-		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_6;
+		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_6;*/
+
+		ConstructorHelpers::FObjectFinderOptional<UMaterial> MaterialTNT;
+		ConstructorHelpers::FObjectFinderOptional<UMaterial> MaterialIce;
+		ConstructorHelpers::FObjectFinderOptional<UMaterial> MaterialMetal;
+		ConstructorHelpers::FObjectFinderOptional<UMaterial> MaterialStone;
+		ConstructorHelpers::FObjectFinderOptional<UMaterial> MaterialWood;
+		
 
 		FConstructorStatics() :
-			Color_0(TEXT("Material'/Game/Mesh/Material_0.Material_0'")),
+			/*Color_0 (TEXT ("Material'/Game/Mesh/Material_0.Material_0'")),
 			Color_1(TEXT("Material'/Game/Mesh/Material_1.Material_1'")),
 			Color_2(TEXT("Material'/Game/Mesh/Material_2.Material_2'")),
 			Color_3(TEXT("Material'/Game/Mesh/Material_3.Material_3'")),
 			Color_4(TEXT("Material'/Game/Mesh/Material_4.Material_4'")),
 			Color_5(TEXT("Material'/Game/Mesh/Material_5.Material_5'")),
-			Color_6(TEXT("Material'/Game/Mesh/Material_6.Material_6'"))
+			Color_6(TEXT("Material'/Game/Mesh/Material_6.Material_6'"))*/
+
+			MaterialTNT(TEXT("Material'/Game/Mesh/SpecialPieces/M_Tech_Hex_Tile_Pulse.M_Tech_Hex_Tile_Pulse'")),
+			MaterialIce(TEXT("Material'/Game/Mesh/SpecialPieces/M_Water_Ocean.M_Water_Ocean'")),
+			MaterialMetal(TEXT("Material'/Game/Mesh/SpecialPieces/M_Metal_Steel.M_Metal_Steel'")),
+			MaterialStone(TEXT("Material'/Game/Mesh/SpecialPieces/M_Rock_Slate.M_Rock_Slate'")),
+			MaterialWood(TEXT("Material'/Game/Mesh/SpecialPieces/M_Wood_Floor_Walnut_Worn.M_Wood_Floor_Walnut_Worn'"))
 		{
 		}
 	};
 
 	static FConstructorStatics ConstructorStatics;
-	Colors.Add(ConstructorStatics.Color_0.Get());
+	/*Colors.Add(ConstructorStatics.Color_0.Get());
 	Colors.Add(ConstructorStatics.Color_1.Get());
 	Colors.Add(ConstructorStatics.Color_2.Get());
 	Colors.Add(ConstructorStatics.Color_3.Get());
 	Colors.Add(ConstructorStatics.Color_4.Get());
 	Colors.Add(ConstructorStatics.Color_5.Get());
-	Colors.Add(ConstructorStatics.Color_6.Get());
+	Colors.Add(ConstructorStatics.Color_6.Get());*/
+
+	Colors.Add(ConstructorStatics.MaterialTNT.Get());
+	Colors.Add(ConstructorStatics.MaterialIce.Get());
+	Colors.Add(ConstructorStatics.MaterialMetal.Get());
+	Colors.Add(ConstructorStatics.MaterialStone.Get());
+	Colors.Add(ConstructorStatics.MaterialWood.Get());
 
 	static ConstructorHelpers::FObjectFinder<USoundCue> RotateSoundCueObject(TEXT("SoundCue'/Game/Sounds/block-rotate_Cue.block-rotate_Cue'"));
 	if (RotateSoundCueObject.Succeeded()) {
@@ -63,8 +89,12 @@ APiece::APiece() {
 // Called when the game starts or when spawned
 void APiece::BeginPlay() {
 	Super::BeginPlay();
-
-	SpawnPieces();
+	SpawnPieces ();
+	/*TNTBuilder = GetWorld ()->SpawnActor<ATNTPieceBuilder> (ATNTPieceBuilder::StaticClass ());
+	IceBuilder = GetWorld ()->SpawnActor<AIcePieceBuilder> (AIcePieceBuilder::StaticClass ());
+	MetalBuilder = GetWorld ()->SpawnActor<AMetalPieceBuilder> (AMetalPieceBuilder::StaticClass ());
+	StoneBuilder = GetWorld ()->SpawnActor<AStonePieceBuilder> (AStonePieceBuilder::StaticClass ());
+	WoodBuilder = GetWorld ()->SpawnActor<AWoodPieceBuilder> (AWoodPieceBuilder::StaticClass ());*/
 }
 
 // Called every frame
@@ -89,7 +119,45 @@ void APiece::SpawnPieces() {
 	UE_LOG(LogTemp, Warning, TEXT("index=%d"), Index);
 
 	const vector<pair<float, float>>& YZs = Shapes[Index];
-	const int ColorIndex = FMath::RandRange(0, Shapes.size() - 1);
+	const int ColorIndex = FMath::RandRange(0, 5 - 1);
+
+	//switch (ColorIndex) {
+	//	case 0:
+	//		//pieza de TNT
+	//		Engineer->SetPieceBuilder (TNTBuilder);
+	//		Engineer->ConstructPiece ();
+	//		APiece2 *Piece2TNT = Engineer->GetPiece2 ();
+	//		Piece2TNT->Piece2Characteristics ();
+	//		break;
+	//	case 1:
+	//		//pieza de hielo
+	//		Engineer->SetPieceBuilder (IceBuilder);
+	//		Engineer->ConstructPiece ();
+	//		APiece2 *Piece2Ice = Engineer->GetPiece2 ();
+	//		Piece2Ice->Piece2Characteristics ();
+	//		break;
+	//	case 2:
+	//		//pieza de metal
+	//		Engineer->SetPieceBuilder (MetalBuilder);
+	//		Engineer->ConstructPiece ();
+	//		APiece2 *Piece2Metal = Engineer->GetPiece2 ();
+	//		Piece2Metal->Piece2Characteristics ();
+	//		break;
+	//	case 3:
+	//		//pieza de piedra
+	//		Engineer->SetPieceBuilder (StoneBuilder);
+	//		Engineer->ConstructPiece ();
+	//		APiece2 *Piece2Stone = Engineer->GetPiece2 ();
+	//		Piece2Stone->Piece2Characteristics ();
+	//		break;
+	//	case 4:
+	//			//pieza de madera
+	//		Engineer->SetPieceBuilder (WoodBuilder);
+	//		Engineer->ConstructPiece ();
+	//		APiece2 *Piece2Wood = Engineer->GetPiece2 ();
+	//		Piece2Wood->Piece2Characteristics ();
+	//		break;
+	//}
 
 	for (auto&& YZ : YZs) {
 		FRotator Rotation(0.0, 0.0, 0.0);
@@ -99,7 +167,7 @@ void APiece::SpawnPieces() {
 		B->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 		B->SetActorRelativeLocation(FVector(0.0, YZ.first, YZ.second));
 	}
-
+	//Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer> (AArchitecturalEngineer::StaticClass ());
 }
 
 void APiece::EndPlay(const EEndPlayReason::Type EndPlayReason) {

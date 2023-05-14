@@ -2,16 +2,6 @@
 
 
 #include "TetrisUSFX01GameModeBase.h"
-
-#include "TNTPieceBuilder.h"
-#include "IcePieceBuilder.h"
-#include "MetalPieceBuilder.h"
-#include "StonePieceBuilder.h"
-#include "WoodPieceBuilder.h"
-
-#include "ArchitecturalEngineer.h"
-#include "Piece2.h"
-
 #include "Board.h"
 #include "Camera/CameraActor.h"
 #include "Kismet/GameplayStatics.h"
@@ -39,48 +29,6 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 			break;
 		}
 	}
-
-
-
-	TNTBuilder = GetWorld ()->SpawnActor<ATNTPieceBuilder> (ATNTPieceBuilder::StaticClass());
-	IceBuilder = GetWorld ()->SpawnActor<AIcePieceBuilder> (AIcePieceBuilder::StaticClass());
-	MetalBuilder = GetWorld ()->SpawnActor<AMetalPieceBuilder> (AMetalPieceBuilder::StaticClass());
-	StoneBuilder = GetWorld ()->SpawnActor<AStonePieceBuilder> (AStonePieceBuilder::StaticClass());
-	WoodBuilder = GetWorld ()->SpawnActor<AWoodPieceBuilder> (AWoodPieceBuilder::StaticClass());
-
-
-	Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer>(AArchitecturalEngineer::StaticClass ());
-
-	//pieza de TNT
-	Engineer->SetPieceBuilder (TNTBuilder);
-	Engineer->ConstructPiece ();
-	APiece2* Piece2TNT = Engineer->GetPiece2 ();
-	Piece2TNT->Piece2Characteristics ();
-
-	//pieza de hielo
-	Engineer->SetPieceBuilder (IceBuilder);
-	Engineer->ConstructPiece ();
-	APiece2* Piece2Ice = Engineer->GetPiece2 ();
-	Piece2Ice->Piece2Characteristics ();
-
-	//pieza de metal
-	Engineer->SetPieceBuilder (MetalBuilder);
-	Engineer->ConstructPiece ();
-	APiece2* Piece2Metal = Engineer->GetPiece2 ();
-	Piece2Metal->Piece2Characteristics ();
-
-	//pieza de piedra
-	Engineer->SetPieceBuilder (StoneBuilder);
-	Engineer->ConstructPiece ();
-	APiece2 *Piece2Stone = Engineer->GetPiece2 ();
-	Piece2Stone->Piece2Characteristics ();
-
-	//pieza de madera
-	Engineer->SetPieceBuilder (WoodBuilder);
-	Engineer->ConstructPiece ();
-	APiece2 *Piece2Wood = Engineer->GetPiece2 ();
-	Piece2Wood->Piece2Characteristics ();
-
 }
 
 // Called every frame

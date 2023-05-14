@@ -38,8 +38,8 @@ void APiece2::SetNumBlocks (FString _NumBlocks) {
 }
 
 void APiece2::Piece2Characteristics () {
-	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("%s"), *Material));
-	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("%s"), *NamePiece));
-	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("%s"), *NumBlocks));
+	GEngine->AddOnScreenDebugMessage (-1, 5.0f, FColor::Yellow, FString::Printf (TEXT ("%s"), *Material));
+	GEngine->AddOnScreenDebugMessage (-1, 5.0f, FColor::Yellow, FString::Printf (TEXT ("%s"), *NamePiece));
+	GEngine->AddOnScreenDebugMessage (-1, 5.0f, FColor::Yellow, FString::Printf (TEXT ("%s"), *NumBlocks));
 }
 

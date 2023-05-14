@@ -56,7 +56,17 @@ public:
 	
 	//creamos un array para los colores de los bloques
 	TArray<class UMaterial*> Colors;
+
+	//TArray<class UMaterial*> Textures;
 private:
 	// creamos un array para los bloques de la pieza creada
 	TArray<ABlock*> Blocks;
+
+	//class ATNTPieceBuilder *TNTBuilder;
+	//class AIcePieceBuilder *IceBuilder;
+	//class AMetalPieceBuilder *MetalBuilder;
+	//class AStonePieceBuilder *StoneBuilder;
+	//class AWoodPieceBuilder *WoodBuilder;
+
+	//class AArchitecturalEngineer *Engineer;
 };
