@@ -27,7 +27,6 @@ APiece::APiece() {
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_4;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_5;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_6;
-		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_7;
 
 		FConstructorStatics() :
 			Color_0(TEXT("Material'/Game/Mesh/Material_0.Material_0'")),
@@ -36,8 +35,7 @@ APiece::APiece() {
 			Color_3(TEXT("Material'/Game/Mesh/Material_3.Material_3'")),
 			Color_4(TEXT("Material'/Game/Mesh/Material_4.Material_4'")),
 			Color_5(TEXT("Material'/Game/Mesh/Material_5.Material_5'")),
-			Color_6(TEXT("Material'/Game/Mesh/Material_6.Material_6'")),
-			Color_7(TEXT("Material'/Game/Mesh/Material_006.Material_006'"))
+			Color_6(TEXT("Material'/Game/Mesh/Material_6.Material_6'"))
 		{
 		}
 	};
@@ -50,7 +48,6 @@ APiece::APiece() {
 	Colors.Add(ConstructorStatics.Color_4.Get());
 	Colors.Add(ConstructorStatics.Color_5.Get());
 	Colors.Add(ConstructorStatics.Color_6.Get());
-	Colors.Add(ConstructorStatics.Color_7.Get());
 
 	static ConstructorHelpers::FObjectFinder<USoundCue> RotateSoundCueObject(TEXT("SoundCue'/Game/Sounds/block-rotate_Cue.block-rotate_Cue'"));
 	if (RotateSoundCueObject.Succeeded()) {
@@ -84,8 +81,7 @@ void APiece::SpawnPieces() {
 		{{0.0, 0.0}, {10.0, 0.0}, {0.0, -10.0}, {10.0, -10.0}},
 		{{-10.0, -10.0}, {0.0, -10.0}, {0.0, 0.0}, {10.0, 0.0}},
 		{{-10.0, 0.0}, {0.0, 0.0}, {0.0, 10.0}, {10.0, 0.0}},
-		{{-10.0, 0.0}, {0.0, 0.0}, {0.0, -10.0}, {10.0, -10.0}},
-		{{-20.0, 10.0}, {-10.0, 0.0}, {0.0, 10.0}, {10.0, 0.0}}
+		{{-10.0, 0.0}, {0.0, 0.0}, {0.0, -10.0}, {10.0, -10.0}}
 	};
 
 	const int Index = FMath::RandRange(0, Shapes.size() - 1);
