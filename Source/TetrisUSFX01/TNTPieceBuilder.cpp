@@ -29,13 +29,13 @@ void ATNTPieceBuilder::BuildMaterial () {
 	Piece2->SetMaterial ("Explosivos");
 }
 
-void ATNTPieceBuilder::BuildNumBlocks () {
-	Piece2->SetNumBlocks ("10");
-}
-
-void ATNTPieceBuilder::BuildNamePiece () {
-	Piece2->SetNamePiece ("PieceTNT");
-}
+//void ATNTPieceBuilder::BuildNumBlocks () {
+//	Piece2->SetNumBlocks ("10");
+//}
+//
+//void ATNTPieceBuilder::BuildNamePiece () {
+//	Piece2->SetNamePiece ("PieceTNT");
+//}
 
 APiece2 *ATNTPieceBuilder::GetPiece2() {
 	return Piece2;

@@ -30,13 +30,13 @@ void AStonePieceBuilder::BuildMaterial () {
 
 }
 
-void AStonePieceBuilder::BuildNumBlocks () {
-	Piece2->SetNumBlocks ("4");
-}
-
-void AStonePieceBuilder::BuildNamePiece () {
-		Piece2->SetNamePiece ("PieceStone");
-}
+//void AStonePieceBuilder::BuildNumBlocks () {
+//	Piece2->SetNumBlocks ("4");
+//}
+//
+//void AStonePieceBuilder::BuildNamePiece () {
+//		Piece2->SetNamePiece ("PieceStone");
+//}
 
 APiece2 *AStonePieceBuilder::GetPiece2 () {
 	return Piece2;

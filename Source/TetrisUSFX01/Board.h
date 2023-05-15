@@ -14,31 +14,30 @@ class TETRISUSFX01_API ABoard : public APawn
 
 public:
 	//patron singleton
-	static ABoard* GetInstance();
+	static ABoard *GetInstance ();
 
 protected:
 	// Sets default values for this pawn's properties
 	ABoard ();
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	virtual void BeginPlay () override;
 
-public:	
+public:
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void Tick (float DeltaTime) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void SetupPlayerInputComponent (class UInputComponent *PlayerInputComponent) override;
 
-	UPROPERTY()
 	APiece* CurrentPiece;
 
-	void Rotate();
-	void MoveLeft(); 
-	void MoveRight();
-	void MoveDown();
-	void NewPiece();
-	void CheckLine();
-	void MoveDownToEnd();
+	void Rotate ();
+	void MoveLeft ();
+	void MoveRight ();
+	void MoveDown ();
+	void NewPiece ();
+	void CheckLine ();
+	void MoveDownToEnd ();
 
 	class USoundCue* LineRemoveSoundCue;
 
@@ -55,7 +54,7 @@ private:
 	float CoolLeft = 0.5f;
 	bool bGameOver = false;
 
-	bool CheckGameOver();
+	bool CheckGameOver ();
 
 	//patron singleton
 	static ABoard* Instance;

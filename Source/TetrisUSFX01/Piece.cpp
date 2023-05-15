@@ -5,6 +5,9 @@
 #include "Components/SceneComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
+
+#include "ArchitecturalEngineer.h"
+
 #include <vector>
 #include "Sound/SoundCue.h"
 //
@@ -51,11 +54,11 @@ APiece::APiece() {
 			Color_5(TEXT("Material'/Game/Mesh/Material_5.Material_5'")),
 			Color_6(TEXT("Material'/Game/Mesh/Material_6.Material_6'"))*/
 
-			MaterialTNT(TEXT("Material'/Game/Mesh/SpecialPieces/M_Tech_Hex_Tile_Pulse.M_Tech_Hex_Tile_Pulse'")),
-			MaterialIce(TEXT("Material'/Game/Mesh/SpecialPieces/M_Water_Ocean.M_Water_Ocean'")),
-			MaterialMetal(TEXT("Material'/Game/Mesh/SpecialPieces/M_Metal_Steel.M_Metal_Steel'")),
-			MaterialStone(TEXT("Material'/Game/Mesh/SpecialPieces/M_Rock_Slate.M_Rock_Slate'")),
-			MaterialWood(TEXT("Material'/Game/Mesh/SpecialPieces/M_Wood_Floor_Walnut_Worn.M_Wood_Floor_Walnut_Worn'"))
+			MaterialTNT(TEXT("Material'/Game/Mesh/SpecialPieces/TNT.TNT'")),
+			MaterialIce(TEXT("Material'/Game/Mesh/SpecialPieces/Ice.Ice'")),
+			MaterialMetal(TEXT("Material'/Game/Mesh/SpecialPieces/Metal.Metal'")),
+			MaterialStone(TEXT("Material'/Game/Mesh/SpecialPieces/Stone.Stone'")),
+			MaterialWood(TEXT("Material'/Game/Mesh/SpecialPieces/Wood.Wood'"))
 		{
 		}
 	};

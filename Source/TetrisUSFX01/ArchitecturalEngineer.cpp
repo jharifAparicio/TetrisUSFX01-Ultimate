@@ -50,6 +50,6 @@ void AArchitecturalEngineer::ConstructPiece () {
 		return;
 	}
 	PieceBuilder2->BuildMaterial();
-	PieceBuilder2->BuildNamePiece();
-	PieceBuilder2->BuildNumBlocks();
+	/*PieceBuilder2->BuildNamePiece();
+	PieceBuilder2->BuildNumBlocks();*/
 }

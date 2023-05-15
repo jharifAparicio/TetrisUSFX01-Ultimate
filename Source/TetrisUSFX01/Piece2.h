@@ -5,10 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "FloorPiece.h"
+//#include "Piece.h"
 #include "Piece2.generated.h"
 
 UCLASS()
-class TETRISUSFX01_API APiece2 : public AActor, public IFloorPiece {
+class TETRISUSFX01_API APiece2 : public AActor, public IFloorPiece{
 	GENERATED_BODY()
 	
 public:	
@@ -17,8 +18,8 @@ public:
 
 private:
 	FString Material;
-	FString NamePiece;
-	FString NumBlocks;
+	/*FString NamePiece;
+	FString NumBlocks;*/
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,8 +30,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void SetMaterial (FString _Material);
-	virtual void SetNamePiece (FString _NamePiece);
-	virtual void SetNumBlocks (FString _NumBlocks);
+	//virtual void SetNamePiece (FString _NamePiece);
+	//virtual void SetNumBlocks (FString _NumBlocks);
 	
 
 	void Piece2Characteristics ();

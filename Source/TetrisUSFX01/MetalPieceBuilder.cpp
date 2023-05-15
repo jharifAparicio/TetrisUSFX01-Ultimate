@@ -32,13 +32,13 @@ void AMetalPieceBuilder::BuildMaterial () {
 	Piece2->SetMaterial ("Metal");
 }
 
-void AMetalPieceBuilder::BuildNumBlocks () {
-	Piece2->SetNumBlocks ("4");
-}
-
-void AMetalPieceBuilder::BuildNamePiece () {
-	Piece2->SetNamePiece ("PieceMetal");
-}
+//void AMetalPieceBuilder::BuildNumBlocks () {
+//	Piece2->SetNumBlocks ("4");
+//}
+//
+//void AMetalPieceBuilder::BuildNamePiece () {
+//	Piece2->SetNamePiece ("PieceMetal");
+//}
 
 APiece2 *AMetalPieceBuilder::GetPiece2 () {
 	return Piece2;

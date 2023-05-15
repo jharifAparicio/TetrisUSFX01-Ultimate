@@ -31,15 +31,17 @@ void AIcePieceBuilder::Tick(float DeltaTime)
 
 void AIcePieceBuilder::BuildMaterial () {
 	Piece2->SetMaterial ("Hielo");
+	//asigna una texura a la pieza de hielo
+
 }
 
-void AIcePieceBuilder::BuildNumBlocks () {
-	Piece2->SetNumBlocks ("4");
-}
-
-void AIcePieceBuilder::BuildNamePiece () {
-	Piece2->SetNamePiece ("PieceIce");
-}
+//void AIcePieceBuilder::BuildNumBlocks () {
+//	Piece2->SetNumBlocks ("4");
+//}
+//
+//void AIcePieceBuilder::BuildNamePiece () {
+//	Piece2->SetNamePiece ("PieceIce");
+//}
 
 APiece2 *AIcePieceBuilder::GetPiece2 () {
 	return Piece2;

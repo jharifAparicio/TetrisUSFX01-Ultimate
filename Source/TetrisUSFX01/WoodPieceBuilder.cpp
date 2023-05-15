@@ -31,13 +31,13 @@ void AWoodPieceBuilder::BuildMaterial () {
 	Piece2->SetMaterial ("Madera");
 }
 
-void AWoodPieceBuilder::BuildNumBlocks () {
-	Piece2->SetNumBlocks ("4");
-}
-
-void AWoodPieceBuilder::BuildNamePiece () {
-	Piece2->SetNamePiece ("PieceWood");
-}
+//void AWoodPieceBuilder::BuildNumBlocks () {
+//	Piece2->SetNumBlocks ("4");
+//}
+//
+//void AWoodPieceBuilder::BuildNamePiece () {
+//	Piece2->SetNamePiece ("PieceWood");
+//}
 
 APiece2* AWoodPieceBuilder::GetPiece2 () {
 	return Piece2;

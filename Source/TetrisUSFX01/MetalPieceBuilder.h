@@ -25,8 +25,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void BuildMaterial () override;
-	virtual void BuildNumBlocks () override;
-	virtual void BuildNamePiece() override;
+	/*void BuildNumBlocks ();
+	void BuildNamePiece();*/
 
-	virtual APiece2* GetPiece2 () override;
+	APiece2* GetPiece2 ();
 };
