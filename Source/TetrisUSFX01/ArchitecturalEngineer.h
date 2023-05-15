@@ -30,5 +30,4 @@ public:
 	void SetPieceBuilder (AActor* Builder);
 
 	class APiece2* GetPiece2();
-
 };

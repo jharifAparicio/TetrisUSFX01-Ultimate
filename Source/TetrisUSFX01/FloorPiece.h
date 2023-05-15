@@ -22,7 +22,7 @@ class TETRISUSFX01_API IFloorPiece
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	virtual void SetMaterial(FString _Material) = 0; //VIRTUAL_PURE
+	virtual void SetMaterial (FString _Material) = 0; //VIRTUAL_PURE
 	virtual void SetNumBlocks(FString _NumBlocks) = 0;
 	virtual void SetNamePiece (FString NamePiece) = 0;
 };
