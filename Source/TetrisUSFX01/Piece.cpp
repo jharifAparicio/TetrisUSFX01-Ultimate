@@ -124,44 +124,6 @@ void APiece::SpawnPieces() {
 	const vector<pair<float, float>>& YZs = Shapes[Index];
 	const int ColorIndex = FMath::RandRange(0, 5 - 1);
 
-	//switch (ColorIndex) {
-	//	case 0:
-	//		//pieza de TNT
-	//		Engineer->SetPieceBuilder (TNTBuilder);
-	//		Engineer->ConstructPiece ();
-	//		APiece2 *Piece2TNT = Engineer->GetPiece2 ();
-	//		Piece2TNT->Piece2Characteristics ();
-	//		break;
-	//	case 1:
-	//		//pieza de hielo
-	//		Engineer->SetPieceBuilder (IceBuilder);
-	//		Engineer->ConstructPiece ();
-	//		APiece2 *Piece2Ice = Engineer->GetPiece2 ();
-	//		Piece2Ice->Piece2Characteristics ();
-	//		break;
-	//	case 2:
-	//		//pieza de metal
-	//		Engineer->SetPieceBuilder (MetalBuilder);
-	//		Engineer->ConstructPiece ();
-	//		APiece2 *Piece2Metal = Engineer->GetPiece2 ();
-	//		Piece2Metal->Piece2Characteristics ();
-	//		break;
-	//	case 3:
-	//		//pieza de piedra
-	//		Engineer->SetPieceBuilder (StoneBuilder);
-	//		Engineer->ConstructPiece ();
-	//		APiece2 *Piece2Stone = Engineer->GetPiece2 ();
-	//		Piece2Stone->Piece2Characteristics ();
-	//		break;
-	//	case 4:
-	//			//pieza de madera
-	//		Engineer->SetPieceBuilder (WoodBuilder);
-	//		Engineer->ConstructPiece ();
-	//		APiece2 *Piece2Wood = Engineer->GetPiece2 ();
-	//		Piece2Wood->Piece2Characteristics ();
-	//		break;
-	//}
-
 	for (auto&& YZ : YZs) {
 		FRotator Rotation(0.0, 0.0, 0.0);
 		ABlock* B = GetWorld()->SpawnActor<ABlock>(this->GetActorLocation(), Rotation);
@@ -170,7 +132,6 @@ void APiece::SpawnPieces() {
 		B->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 		B->SetActorRelativeLocation(FVector(0.0, YZ.first, YZ.second));
 	}
-	//Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer> (AArchitecturalEngineer::StaticClass ());
 }
 
 void APiece::EndPlay(const EEndPlayReason::Type EndPlayReason) {
