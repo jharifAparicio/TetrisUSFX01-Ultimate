@@ -40,7 +40,7 @@ ABoard::ABoard() {
 ABoard *ABoard::GetInstance () {
 	if (Instance == nullptr) {
 		Instance = NewObject<ABoard> ();
-		UE_LOG (LogTemp, Warning, TEXT ("Board Creado"));
+		GEngine->AddOnScreenDebugMessage (-1, 5.0f, FColor::Yellow, TEXT ("Board created"));
 	}
 	return Instance;
 }
