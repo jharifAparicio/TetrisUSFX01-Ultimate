@@ -34,16 +34,16 @@ void AIcePieceBuilder::Tick(float DeltaTime)
 
 void AIcePieceBuilder::BuildMaterial () {
 	Piece2->SetMaterial ("Hielo");
-	//asigna una texura a la pieza de hielo
-	UMaterial* LoadedTexture = LoadObject <UMaterial>(nullptr,TEXT( "Material'/Game/Mesh/SpecialPieces/Ice.Ice'"));
+	////asigna una texura a la pieza de hielo
+	//UMaterial* LoadedTexture = LoadObject <UMaterial>(nullptr,TEXT( "Material'/Game/Mesh/SpecialPieces/Ice.Ice'"));
 
-	if (LoadedTexture) {
-	// El material se ha cargado correctamente
-		Texture = LoadedTexture;
-	} else {
-		// No se pudo cargar el material
-		UE_LOG (LogTemp, Warning, TEXT ("No se pudo cargar el material: %s"),TEXT("Material'/Game/Mesh/SpecialPieces/Ice.Ice'"));
-	}
+	//if (LoadedTexture) {
+	//// El material se ha cargado correctamente
+	//	Texture = LoadedTexture;
+	//} else {
+	//	// No se pudo cargar el material
+	//	UE_LOG (LogTemp, Warning, TEXT ("No se pudo cargar el material: %s"),TEXT("Material'/Game/Mesh/SpecialPieces/Ice.Ice'"));
+	//}
 }
 
 APiece2 *AIcePieceBuilder::GetPiece2 () {

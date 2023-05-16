@@ -27,7 +27,7 @@ public:
 	virtual void BuildMaterial() override;
 	/*virtual void BuildNumBlocks () override;
 	virtual void BuildNamePiece() override;*/;
-	class UMaterial* Texture;
+	//class UMaterial* Texture;
 
 	virtual APiece2* GetPiece2() override;
 };

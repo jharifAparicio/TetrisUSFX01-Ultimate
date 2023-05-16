@@ -59,6 +59,6 @@ private:
 	// creamos un array para los bloques de la pieza creada
 	TArray<ABlock*> Blocks;
 
-	class AIcePieceBuilder* IceBuilder;
-	class AArchitecturalEngineer *Engineer;
+	/*class AIcePieceBuilder* IceBuilder;
+	class AArchitecturalEngineer *Engineer;*/
 };

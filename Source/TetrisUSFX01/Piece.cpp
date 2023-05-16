@@ -6,10 +6,11 @@
 #include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
 
-#include "ArchitecturalEngineer.h"
-#include "IcePieceBuilder.h"
+//#include "ArchitecturalEngineer.h"
+//#include "IcePieceBuilder.h"
+//
+//#include "Piece2.h"
 
-#include "Piece2.h"
 #include <vector>
 #include "Sound/SoundCue.h"
 
@@ -121,11 +122,11 @@ void APiece::SpawnPieces() {
 	const vector<pair<float, float>>& YZs = Shapes[Index];
 	const int ColorIndex = FMath::RandRange(0, 5 - 1);
 
-	UMaterial* Material = IceBuilder->Texture;
+	//UMaterial* Material = IceBuilder->Texture;
 	for (auto&& YZ : YZs) {
 		FRotator Rotation(0.0, 0.0, 0.0);
 		ABlock* B = GetWorld()->SpawnActor<ABlock>(this->GetActorLocation(), Rotation);
-		B->BlockMesh->SetMaterial(1, Material);
+		B->BlockMesh->SetMaterial(1, Colors[ColorIndex]);
 		Blocks.Add(B);
 		B->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 		B->SetActorRelativeLocation(FVector(0.0, YZ.first, YZ.second));
