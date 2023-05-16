@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "Materials/Material.h"
 #include "PieceBuilder.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UPieceBuilder : public UInterface {
+class UPieceBuilder : public UInterface
+{
 	GENERATED_BODY()
 };
 
@@ -27,5 +27,6 @@ public:
 	virtual void BuildNamePiece ()PURE_VIRTUAL(,);*/
 	UMaterial* Texture;
 
+	//virtual void GetTexture() = 0;
 	virtual class APiece2* GetPiece2() = 0;
 };

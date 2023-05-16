@@ -7,18 +7,20 @@
 #include "DrawDebugHelpers.h"
 
 #include "ArchitecturalEngineer.h"
+#include "IcePieceBuilder.h"
 
+#include "Piece2.h"
 #include <vector>
 #include "Sound/SoundCue.h"
-//
-//#include "TNTPieceBuilder.h"
-//#include "IcePieceBuilder.h"
-//#include "MetalPieceBuilder.h"
-//#include "StonePieceBuilder.h"
-//#include "WoodPieceBuilder.h"
-//#include "ArchitecturalEngineer.h"
-//#include "Piece2.h"
 
+//crea un enumerdor de tipos de piezas
+enum class EPieceType {
+	PieceIce,
+	PieceWood,
+	PieceStone,
+	PieceTNT,
+	PieceMetal
+};
 
 // carga los valores inicales de la pieza
 APiece::APiece() {
@@ -93,11 +95,6 @@ APiece::APiece() {
 void APiece::BeginPlay() {
 	Super::BeginPlay();
 	SpawnPieces ();
-	/*TNTBuilder = GetWorld ()->SpawnActor<ATNTPieceBuilder> (ATNTPieceBuilder::StaticClass ());
-	IceBuilder = GetWorld ()->SpawnActor<AIcePieceBuilder> (AIcePieceBuilder::StaticClass ());
-	MetalBuilder = GetWorld ()->SpawnActor<AMetalPieceBuilder> (AMetalPieceBuilder::StaticClass ());
-	StoneBuilder = GetWorld ()->SpawnActor<AStonePieceBuilder> (AStonePieceBuilder::StaticClass ());
-	WoodBuilder = GetWorld ()->SpawnActor<AWoodPieceBuilder> (AWoodPieceBuilder::StaticClass ());*/
 }
 
 // Called every frame
@@ -124,10 +121,11 @@ void APiece::SpawnPieces() {
 	const vector<pair<float, float>>& YZs = Shapes[Index];
 	const int ColorIndex = FMath::RandRange(0, 5 - 1);
 
+	UMaterial* Material = IceBuilder->Texture;
 	for (auto&& YZ : YZs) {
 		FRotator Rotation(0.0, 0.0, 0.0);
 		ABlock* B = GetWorld()->SpawnActor<ABlock>(this->GetActorLocation(), Rotation);
-		B->BlockMesh->SetMaterial(1, Colors[ColorIndex]);
+		B->BlockMesh->SetMaterial(1, Material);
 		Blocks.Add(B);
 		B->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 		B->SetActorRelativeLocation(FVector(0.0, YZ.first, YZ.second));

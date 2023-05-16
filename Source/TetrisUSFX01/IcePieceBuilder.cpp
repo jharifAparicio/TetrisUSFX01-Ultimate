@@ -2,6 +2,10 @@
 
 
 #include "IcePieceBuilder.h"
+#include "Materials/Material.h"
+#include "UObject/SoftObjectPtr.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Engine.h"
 #include "Piece2.h"
 
 // Sets default values
@@ -26,22 +30,21 @@ void AIcePieceBuilder::BeginPlay()
 void AIcePieceBuilder::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AIcePieceBuilder::BuildMaterial () {
 	Piece2->SetMaterial ("Hielo");
 	//asigna una texura a la pieza de hielo
+	UMaterial* LoadedTexture = LoadObject <UMaterial>(nullptr,TEXT( "Material'/Game/Mesh/SpecialPieces/Ice.Ice'"));
 
+	if (LoadedTexture) {
+	// El material se ha cargado correctamente
+		Texture = LoadedTexture;
+	} else {
+		// No se pudo cargar el material
+		UE_LOG (LogTemp, Warning, TEXT ("No se pudo cargar el material: %s"),TEXT("Material'/Game/Mesh/SpecialPieces/Ice.Ice'"));
+	}
 }
-
-//void AIcePieceBuilder::BuildNumBlocks () {
-//	Piece2->SetNumBlocks ("4");
-//}
-//
-//void AIcePieceBuilder::BuildNamePiece () {
-//	Piece2->SetNamePiece ("PieceIce");
-//}
 
 APiece2 *AIcePieceBuilder::GetPiece2 () {
 	return Piece2;
