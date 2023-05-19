@@ -7,6 +7,10 @@
 #include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"
 
+#include "ExplosiveBlock.h"
+#include "ArchitecturalEngineer.h"
+#include "GenericBlock.h"
+
 ATetrisUSFX01GameModeBase::ATetrisUSFX01GameModeBase () {
 	 // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -29,6 +33,20 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 			break;
 		}
 	}
+		ExplosiveBlockBuilder = GetWorld ()->SpawnActor<AExplosiveBlock>
+		(AExplosiveBlock::StaticClass ());
+	Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer>
+		(AArchitecturalEngineer::StaticClass ());
+		//Set the Builder for the Engineer and create the buildings
+	Engineer->SetBlockBuilder (ExplosiveBlockBuilder);
+	Engineer->ConstructBlock ();
+	//Get the Engineer's Lodging and Logs the created buildings
+	AGenericBlock* GenericBlock = Engineer->GetGenericBlock ();
+	GenericBlock->BlockCharacteristics();
+	//Destroy the Engineer
+	Engineer->Destroy ();
+	//Destroy the Lodging
+	GenericBlock->Destroy ();
 }
 
 // Called every frame

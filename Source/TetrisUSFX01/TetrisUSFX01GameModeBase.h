@@ -28,10 +28,11 @@ public:
 	UFUNCTION()
 	void DestroyActorFunction();
 private:
-
-	
-
 	virtual void Tick(float DeltaTime) override;
+
+	class AExplosiveBlock* ExplosiveBlockBuilder;
+	class AArchitecturalEngineer* Engineer;
+
 private:
 	float siguientePosicionZ;
 };
