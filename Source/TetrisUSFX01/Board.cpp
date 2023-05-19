@@ -154,6 +154,7 @@ bool ABoard::CheckGameOver() {
 void ABoard::NewPiece () {
 	CheckLine();
 	if (CurrentPiece) {
+
 		CurrentPiece->Dismiss();
 		CurrentPiece->Destroy();
 	}

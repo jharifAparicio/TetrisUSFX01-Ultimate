@@ -3,8 +3,11 @@
 
 #include "IcePieceBuilder.h"
 #include "Materials/Material.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/ConstructorHelpers.h"
+//
+//#include "UObject/ConstructorHelpers.h"
+//#include "Components.h"
+//#include "Materials/MaterialInstance.h"
+
 #include "Engine.h"
 #include "Piece2.h"
 
@@ -14,6 +17,24 @@ AIcePieceBuilder::AIcePieceBuilder()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	/*struct FConstructorStatics {
+		ConstructorHelpers::FObjectFinder <UMaterial> IceMaterial;
+		FConstructorStatics()
+			: IceMaterial (TEXT ("Material'/Game/Mesh/SpecialPieces/Ice.Ice'")) {
+				
+		}
+	};
+
+	static FConstructorStatics ConstructorStatics;
+
+	enlace = CreateDefaultSubobject <USceneComponent>(TEXT("enlace1"));
+	RootComponent = enlace;
+
+	IceMesh = CreateDefaultSubobject <UStaticMeshComponent>(TEXT("IceMesh1"));
+
+	IceMesh->SetStaticMesh();
+
+	IceMesh->SetupAttachment (enlace);*/
 }
 
 // Called when the game starts or when spawned
@@ -35,7 +56,7 @@ void AIcePieceBuilder::Tick(float DeltaTime)
 void AIcePieceBuilder::BuildMaterial () {
 	Piece2->SetMaterial ("Hielo");
 	////asigna una texura a la pieza de hielo
-	//UMaterial* LoadedTexture = LoadObject <UMaterial>(nullptr,TEXT( "Material'/Game/Mesh/SpecialPieces/Ice.Ice'"));
+		
 
 	//if (LoadedTexture) {
 	//// El material se ha cargado correctamente

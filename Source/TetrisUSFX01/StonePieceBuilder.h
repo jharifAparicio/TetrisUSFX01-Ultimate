@@ -8,22 +8,22 @@
 #include "StonePieceBuilder.generated.h"
 
 UCLASS()
-class TETRISUSFX01_API AStonePieceBuilder : public AActor,  public IPieceBuilder {
-	GENERATED_BODY()
-	
-public:	
+class TETRISUSFX01_API AStonePieceBuilder : public AActor, public IPieceBuilder {
+	GENERATED_BODY ()
+
+public:
 	// Sets default values for this actor's properties
-	AStonePieceBuilder();
+	AStonePieceBuilder ();
 private:
-	class APiece2* Piece2;
+	class APiece2 *Piece2;
 
 protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	virtual void BeginPlay () override;
 
-public:	
+public:
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void Tick (float DeltaTime) override;
 
 	virtual void BuildMaterial () override;
 	/*virtual void BuildNumBlocks () override;

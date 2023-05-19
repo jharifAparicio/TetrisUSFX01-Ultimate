@@ -25,6 +25,4 @@ public:
 	void SetMaterial (FString _Material) PURE_VIRTUAL(SetMaterial,);
 	/*void SetNumBlocks (FString _NumBlocks) PURE_VIRTUAL (SetNumBlocks, );
 	void SetNamePiece (FString NamePiece) PURE_VIRTUAL(SetNamePiece,);*/
-
-	//class UMaterial* SetTexture = 0;
 };

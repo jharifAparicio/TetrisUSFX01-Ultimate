@@ -20,6 +20,7 @@ private:
 	FString Material;
 	/*FString NamePiece;
 	FString NumBlocks;*/
+	FString DirectionTexture;
 
 protected:
 	// Called when the game starts or when spawned
@@ -32,7 +33,6 @@ public:
 	virtual void SetMaterial (FString _Material);
 	//virtual void SetNamePiece (FString _NamePiece);
 	//virtual void SetNumBlocks (FString _NumBlocks);
-	
 
 	void Piece2Characteristics ();
 };

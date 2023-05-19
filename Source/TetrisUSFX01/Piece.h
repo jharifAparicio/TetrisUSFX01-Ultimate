@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Block.h"
 #include <functional>
+#include "Containers/Array.h"
 #include "Piece.generated.h"
 
 using namespace std;
@@ -13,52 +14,55 @@ using namespace std;
 UCLASS()
 class TETRISUSFX01_API APiece : public AActor {
 
-	GENERATED_BODY()
+	GENERATED_BODY ()
 
 public:
-	// Sets default values for this actor's properties
-	APiece();
-
+	static APiece* GetInstance ();
 protected:
+	// Sets default values for this actor's properties
+	APiece ();
+
 	// inicializamos al metodo begin play -> se ejecuta al iniciar el juego
-	virtual void BeginPlay() override;
+	virtual void BeginPlay () override;
 
 	// inicializamos al metodo end play -> se ejecuta al finalizar el juego
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+	virtual void EndPlay (const EEndPlayReason::Type EndPlayReason) override;
 
 public:
 	// inicalizamos el metodo tick -> se ejecuta cada frame del juego
-	virtual void Tick(float DeltaTime) override;
+	virtual void Tick (float DeltaTime) override;
 
 	//creamos la clase SceneComponent -> es un componente que nos permite mover el actor
-	class USceneComponent* SceneComponent;
+	class USceneComponent *SceneComponent;
 
 	//creamos los metodos para interactuar con la pieza
-	void DrawDebugPiece();
-	void TestRotate();
-	void MoveLeft();
-	void MoveRight();
+	void DrawDebugPiece ();
+	void TestRotate ();
+	void MoveLeft ();
+	void MoveRight ();
 
-	void MoveDownGraduality();
+	void MoveDownGraduality ();
 
-	bool MoveDown(bool PlaySound = true);
+	bool MoveDown (bool PlaySound = true);
 
 
-	class USoundCue* RotateSoundCue;
+	class USoundCue *RotateSoundCue;
 
-	class USoundCue* MoveLeftRightSoundCue;
+	class USoundCue *MoveLeftRightSoundCue;
 
-	void Dismiss();
-	bool CheckWillCollision(function<FVector(FVector OldLocation)> ChangeBeforeCheck);
+	void Dismiss ();
+	bool CheckWillCollision (function<FVector (FVector OldLocation)> ChangeBeforeCheck);
 
-	void SpawnPieces();
-	
+	void SpawnPieces ();
+
 	//creamos un array para los colores de los bloques
-	TArray<class UMaterial*> Colors;
+	TArray<class UMaterial *> Colors;
+	//class UMaterial* Texture;
 private:
 	// creamos un array para los bloques de la pieza creada
-	TArray<ABlock*> Blocks;
+	TArray<ABlock *> Blocks;
 
-	/*class AIcePieceBuilder* IceBuilder;
-	class AArchitecturalEngineer *Engineer;*/
+	static APiece *Instance;
+public:
+	//static int InstanceCount;
 };

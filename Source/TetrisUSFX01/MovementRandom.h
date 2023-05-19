@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "PieceBuilder.generated.h"
+#include "MovementRandom.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UPieceBuilder : public UInterface
+class UMovementRandom : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -16,14 +16,13 @@ class UPieceBuilder : public UInterface
 /**
  * 
  */
-class TETRISUSFX01_API IPieceBuilder {
-	GENERATED_BODY ()
+class TETRISUSFX01_API IMovementRandom
+{
+	GENERATED_BODY()
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	virtual void BuildMaterial ()PURE_VIRTUAL (, );
-	/*virtual void BuildNumBlocks ()PURE_VIRTUAL (,);
-	virtual void BuildNamePiece ()PURE_VIRTUAL(,);*/
-
-	virtual class APiece2* GetPiece2() = 0;
+	float DistanciaX;
+	float DistanciaY;
+	float DistanciaZ;
 };

@@ -2,26 +2,23 @@
 
 
 #include "Piece.h"
+#include "IcePieceBuilder.h"
 #include "Components/SceneComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
-
-//#include "ArchitecturalEngineer.h"
-//#include "IcePieceBuilder.h"
-//
-//#include "Piece2.h"
-
 #include <vector>
 #include "Sound/SoundCue.h"
 
-//crea un enumerdor de tipos de piezas
-enum class EPieceType {
-	PieceIce,
-	PieceWood,
-	PieceStone,
-	PieceTNT,
-	PieceMetal
-};
+APiece *APiece::Instance = nullptr;
+//int APiece::InstanceCount = 0;
+
+APiece *APiece::GetInstance () {
+	if (Instance == nullptr) {
+		Instance = NewObject<APiece> ();
+		//InstanceCount++;
+	}
+	return Instance;
+}
 
 // carga los valores inicales de la pieza
 APiece::APiece() {
@@ -33,7 +30,7 @@ APiece::APiece() {
 	RootComponent = SceneComponent;
 
 	struct FConstructorStatics {
-		/*ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_0;
+		/*onstructorHelpers::FObjectFinderOptional<UMaterial> Color_0;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_1;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_2;
 		ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_3;
@@ -67,7 +64,7 @@ APiece::APiece() {
 	};
 
 	static FConstructorStatics ConstructorStatics;
-	/*Colors.Add(ConstructorStatics.Color_0.Get());
+	/*Colors.Add (ConstructorStatics.Color_0.Get ());
 	Colors.Add(ConstructorStatics.Color_1.Get());
 	Colors.Add(ConstructorStatics.Color_2.Get());
 	Colors.Add(ConstructorStatics.Color_3.Get());
@@ -122,11 +119,10 @@ void APiece::SpawnPieces() {
 	const vector<pair<float, float>>& YZs = Shapes[Index];
 	const int ColorIndex = FMath::RandRange(0, 5 - 1);
 
-	//UMaterial* Material = IceBuilder->Texture;
 	for (auto&& YZ : YZs) {
 		FRotator Rotation(0.0, 0.0, 0.0);
 		ABlock* B = GetWorld()->SpawnActor<ABlock>(this->GetActorLocation(), Rotation);
-		B->BlockMesh->SetMaterial(1, Colors[ColorIndex]);
+		B->BlockMesh->SetMaterial(1,Colors[ColorIndex]);
 		Blocks.Add(B);
 		B->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 		B->SetActorRelativeLocation(FVector(0.0, YZ.first, YZ.second));
@@ -134,7 +130,12 @@ void APiece::SpawnPieces() {
 }
 
 void APiece::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+	Super::EndPlay(EndPlayReason);
 	UE_LOG(LogTemp, Warning, TEXT("Piezas eliminadas"));
+	/*InstanceCount--;
+	if (InstanceCount <= 0) {
+		Instance = nullptr;
+	}*/
 }
 
 void APiece::DrawDebugPiece() {
