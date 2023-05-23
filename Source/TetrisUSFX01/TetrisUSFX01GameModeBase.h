@@ -6,10 +6,12 @@
 #include "GameFramework/GameModeBase.h"
 #include "Block.h"
 #include "Piece.h"
+#include "AdapterMovementCA.h"
 #include "TetrisUSFX01GameModeBase.generated.h"
 
 UCLASS()
-class TETRISUSFX01_API ATetrisUSFX01GameModeBase : public AGameModeBase {
+class TETRISUSFX01_API ATetrisUSFX01GameModeBase : public AGameModeBase
+{
 	GENERATED_BODY ()
 
 protected:
@@ -19,10 +21,12 @@ public:
 	ATetrisUSFX01GameModeBase ();
 
 	UPROPERTY ()
-		ABlock *SpawnedActor;
+		ABlock *SpawnedBlock1;
 
 	UPROPERTY ()
 		APiece *SpawnedPiece;
+
+	UAdapterMovementCA* AdaptadorMovimientoAleatorio1;
 
 	UFUNCTION ()
 		void DestroyActorFunction ();

@@ -16,13 +16,15 @@ class UMovementRandom : public UInterface
 /**
  * 
  */
-class TETRISUSFX01_API IMovementRandom
-{
-	GENERATED_BODY()
+class TETRISUSFX01_API IMovementRandom {
+	GENERATED_BODY ()
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	float DistanciaX;
 	float DistanciaY;
 	float DistanciaZ;
+
+	float transcurrentTime;
+	float LimitedTime;
 };

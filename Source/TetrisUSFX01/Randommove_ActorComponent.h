@@ -23,12 +23,12 @@ public:
 	// Called every frame
 	virtual void TickComponent (float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
-	//float MovementRadius = 5.0f;
+	float MovementRadius;
 
-	float MovementBroad = 0.f;
-	float MovementHeight = 5.f;
-	float MovementDepth = 5.f;
+	float MovementBroad;
+	float MovementHeight;
+	float MovementDepth;
 
-	float AcumulateTime = 0.f;
-	float LimitedTime = 1000;
+	float AcumulateTime;
+	float LimitedTime;
 };

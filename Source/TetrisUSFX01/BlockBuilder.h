@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "BlockBuilder.h"
 #include "BlockBuilder.generated.h"
 
 // This class does not need to be modified.

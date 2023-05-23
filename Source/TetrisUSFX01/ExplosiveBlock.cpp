@@ -2,26 +2,19 @@
 
 
 #include "ExplosiveBlock.h"
-#include "GenericBlock.h"
 
-AExplosiveBlock::AExplosiveBlock () {
-	PrimaryActorTick.bCanEverTick = true;
-}
+#include "Components/StaticMeshComponent.h"
+#include "Materials/MaterialInterface.h"
 
 void AExplosiveBlock::BeginPlay () {
-	Super::BeginPlay ();
 
-	GenericBlock = GetWorld ()->SpawnActor<AGenericBlock> (AGenericBlock::StaticClass ());
-
-
-	GenericBlock->AttachToActor (this,FAttachmentTransformRules::KeepRelativeTransform);
-
-	UStaticMeshComponent* MeshComponent = Cast<UStaticMeshComponent> (GenericBlock->GetComponentByClass (UStaticMeshComponent::StaticClass ()));
-	//Material1 = LoadObject<UMaterialInterface> (NULL, TEXT ("/Game/Materials/ExplosiveBlockMaterial.ExplosiveBlockMaterial"));
-}
-
-void AExplosiveBlock::Tick (float DeltaTime) {
-	Super::Tick (DeltaTime);
+	// Spawn the Lodging Actors
+	GenericBlock = GetWorld ()->SpawnActor<AGenericBlock>
+		(AGenericBlock::StaticClass ());
+	//Attach it to the Builder (this)
+	GenericBlock->AttachToActor (this, FAttachmentTransformRules::KeepRelativeTransform);
+	UStaticMeshComponent *MeshComponent = Cast<UStaticMeshComponent> (GetComponentByClass (UStaticMeshComponent::StaticClass ()));
+	//Material = Cast<UMaterial> (StaticLoadObject (UMaterial::StaticClass (), nullptr, TEXT ("Material'/Game/Mesh/SpecialPieces/TNT.TNT'")))
 }
 
 void AExplosiveBlock::SizeBlock () {
@@ -41,11 +34,14 @@ void AExplosiveBlock::ColorBlock () {
 }
 
 void AExplosiveBlock::MaterialBlock () {
-	if (!GenericBlock) {
-		UE_LOG (LogTemp, Error, TEXT ("no existe el block"));
-		return;
-	}
-	GenericBlock->SetMaterialBlock ("Explosive");
+
+	//Mesh->SetMaterialBlock (0, Material);
+
+
+	GenericBlock->SetMaterialBlock ("El Material del bloque explosivo");
+
+	//FString NombreMaterial = Material->GetName ();
+	//GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("El material es %s"), *Material));
 }
 
 AGenericBlock *AExplosiveBlock::GetGenericBlock () {

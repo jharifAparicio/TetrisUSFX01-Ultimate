@@ -33,4 +33,6 @@ public:
 	void SetMaterialBlock (FString GMaterialBlock) override;
 
 	void BlockCharacteristics ();
+
+	UStaticMeshComponent* Mesh;
 };

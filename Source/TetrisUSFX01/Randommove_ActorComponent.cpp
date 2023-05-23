@@ -10,8 +10,14 @@ URandommove_ActorComponent::URandommove_ActorComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
-	//MovementRadius = 5.0f;
+	MovementRadius = 5.0f;
+
+	MovementBroad = 0.0f;
+	MovementHeight = 15.0f;
+	MovementDepth = 5.0f;
+
+	AcumulateTime = 0.0f;
+	LimitedTime = 0.2f;
 }
 
 
@@ -30,12 +36,12 @@ void URandommove_ActorComponent::TickComponent(float DeltaTime, ELevelTick TickT
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	AcumulateTime = LimitedTime + DeltaTime;
+	AcumulateTime = AcumulateTime + DeltaTime;
 
 	if (AcumulateTime >= LimitedTime) {
 		AcumulateTime = 0.f;
 
-		AActor *Parent = GetOwner ();
+		AActor* Parent = GetOwner ();
 		if (Parent) {
 		// Find a new position for the object to go to
 			auto NewPos = Parent->GetActorLocation () +

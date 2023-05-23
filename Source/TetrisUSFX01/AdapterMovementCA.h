@@ -15,5 +15,6 @@ class TETRISUSFX01_API UAdapterMovementCA : public URandommove_ActorComponent, p
 	GENERATED_BODY()
 	
 public:
+	UAdapterMovementCA ();
 	void SetLimiteMovimiento(float XMovimiento, float YMovimiento, float ZMovimiento);
 };
