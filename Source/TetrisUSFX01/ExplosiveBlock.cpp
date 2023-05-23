@@ -13,8 +13,11 @@ void AExplosiveBlock::BeginPlay () {
 
 	GenericBlock = GetWorld ()->SpawnActor<AGenericBlock> (AGenericBlock::StaticClass ());
 
+
 	GenericBlock->AttachToActor (this,FAttachmentTransformRules::KeepRelativeTransform);
 
+	UStaticMeshComponent* MeshComponent = Cast<UStaticMeshComponent> (GenericBlock->GetComponentByClass (UStaticMeshComponent::StaticClass ()));
+	//Material1 = LoadObject<UMaterialInterface> (NULL, TEXT ("/Game/Materials/ExplosiveBlockMaterial.ExplosiveBlockMaterial"));
 }
 
 void AExplosiveBlock::Tick (float DeltaTime) {

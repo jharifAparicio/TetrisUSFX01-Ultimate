@@ -32,4 +32,6 @@ public:
 	virtual void MaterialBlock () override;
 
 	virtual class AGenericBlock* GetGenericBlock() override;
+	
+	class UmaterialInterface* Material;
 };

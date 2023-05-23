@@ -9,29 +9,28 @@
 #include "TetrisUSFX01GameModeBase.generated.h"
 
 UCLASS()
-class TETRISUSFX01_API ATetrisUSFX01GameModeBase : public AGameModeBase
-{
-	GENERATED_BODY()
+class TETRISUSFX01_API ATetrisUSFX01GameModeBase : public AGameModeBase {
+	GENERATED_BODY ()
 
 protected:
-	virtual void BeginPlay() override;
+	virtual void BeginPlay () override;
 
 public:
-	ATetrisUSFX01GameModeBase();
+	ATetrisUSFX01GameModeBase ();
 
-	UPROPERTY()
-	ABlock* SpawnedActor;
-	
-	UPROPERTY()
-	APiece* SpawnedPiece;
+	UPROPERTY ()
+		ABlock *SpawnedActor;
 
-	UFUNCTION()
-	void DestroyActorFunction();
+	UPROPERTY ()
+		APiece *SpawnedPiece;
+
+	UFUNCTION ()
+		void DestroyActorFunction ();
 private:
-	virtual void Tick(float DeltaTime) override;
+	virtual void Tick (float DeltaTime) override;
 
-	class AExplosiveBlock* ExplosiveBlockBuilder;
-	class AArchitecturalEngineer* Engineer;
+	class AExplosiveBlock *ExplosiveBlockBuilder;
+	class AArchitecturalEngineer *Engineer;
 
 private:
 	float siguientePosicionZ;
