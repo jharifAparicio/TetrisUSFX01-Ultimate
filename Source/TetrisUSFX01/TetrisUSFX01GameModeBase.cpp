@@ -28,11 +28,19 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 	AdaptadorMovimientoAleatorio1 = NewObject<UAdapterMovementCA> (SpawnedBlock1);
 	AdaptadorMovimientoAleatorio1->RegisterComponent ();*/
 
+	//patron adapter
 	FVector Ubicacion2 (0.0, -70.0, 100.0);
 	SpawnedBlock1 = GetWorld ()->SpawnActor<ABlock> (Ubicacion2, Rotacion);
 	AdaptadorMovimientoAleatorio1 = NewObject<UAdapterMovementCA> (SpawnedBlock1);
 	AdaptadorMovimientoAleatorio1->SetLimiteMovimiento (10.0f, 20.0f, 20.0f);
 	AdaptadorMovimientoAleatorio1->RegisterComponent ();
+
+	//patron decorator
+	FVector Ubicacion3 (0.0, -140.0, 130.0);
+	FRotator Rotacion3 (0.0, 0.0, 0.0);
+	EstructuraConcretaActual = GetWorld ()->SpawnActor<AEstructuraPieceConcreta> (Ubicacion3, Rotacion3);
+	EstructuraMultirotacionActual = GetWorld ()->SpawnActor<ADecoratorRotationMultiple> (ADecoratorRotationMultiple::StaticClass ());
+	EstructuraMultirotacionActual->SetEstructura (EstructuraConcretaActual);
 
 	//patron singleton
 	ABoard *BoardInstance = ABoard::GetInstance ();
@@ -68,9 +76,9 @@ void ATetrisUSFX01GameModeBase::Tick (float DeltaTime) {
 
 
 void ATetrisUSFX01GameModeBase::DestroyActorFunction () {
-	if (SpawnedBlock1 != nullptr) {
-	  // Displays a red message on the screen for 10 seconds
-		GEngine->AddOnScreenDebugMessage (-1, 10, FColor::Red, TEXT ("Actor Block destruido"));
-		SpawnedBlock1->Destroy ();
-	}
+	//if (SpawnedBlock1 != nullptr) {
+	//  // Displays a red message on the screen for 10 seconds
+	//	GEngine->AddOnScreenDebugMessage (-1, 10, FColor::Red, TEXT ("Actor Block destruido"));
+	//	SpawnedBlock1->Destroy ();
+	//}
 }
