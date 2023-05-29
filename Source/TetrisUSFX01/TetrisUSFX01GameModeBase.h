@@ -16,8 +16,7 @@
 #include "TetrisUSFX01GameModeBase.generated.h"
 
 UCLASS()
-class TETRISUSFX01_API ATetrisUSFX01GameModeBase : public AGameModeBase
-{
+class TETRISUSFX01_API ATetrisUSFX01GameModeBase : public AGameModeBase {
 	GENERATED_BODY ()
 
 protected:

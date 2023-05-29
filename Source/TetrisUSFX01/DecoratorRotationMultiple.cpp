@@ -5,6 +5,7 @@
 #include "Block.h"
 
 ADecoratorRotationMultiple::ADecoratorRotationMultiple () {
+	PrimaryActorTick.bCanEverTick = true;
 	//AcumulatedTime = 0.0f;
 }
 
