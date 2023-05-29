@@ -19,16 +19,20 @@ void AEstructuraPieceConcreta::BeginPlay () {
 }
 
 void AEstructuraPieceConcreta::Tick (float DeltaTime) {
-    //AActor::Tick(DeltaTime);
+    AActor::Tick(DeltaTime);
 
-    if (AcumulatedTime >= 0.3) {
-        UE_LOG (LogTemp, Warning, TEXT ("se esta rotando Estructura Concreta"));
+    //if (AcumulatedTime >= 0.3) {
+    //    UE_LOG (LogTemp, Warning, TEXT ("se esta rotando Estructura Concreta"));
+    //    //this->SetActorLocation(this->GetActorLocation() + FVector(0.0, 0.0, -100.0));
+    //    Rotar ();
+    //    AcumulatedTime = 0.0;
+    //} else {
+    //    AcumulatedTime += DeltaTime;
+    //}
+
+    UE_LOG (LogTemp, Warning, TEXT ("se esta rotando Estructura Concreta"));
         //this->SetActorLocation(this->GetActorLocation() + FVector(0.0, 0.0, -100.0));
-        Rotar ();
-        AcumulatedTime = 0.0;
-    } else {
-        AcumulatedTime += DeltaTime;
-    }
+    Rotar ();
 }
 
 void AEstructuraPieceConcreta::Rotar () {

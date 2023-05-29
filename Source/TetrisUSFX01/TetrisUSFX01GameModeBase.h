@@ -44,8 +44,8 @@ public:
 private:
 	virtual void Tick (float DeltaTime) override;
 
-	class AExplosiveBlock *ExplosiveBlockBuilder;
-	class AArchitecturalEngineer *Engineer;
+	/*class AExplosiveBlock *ExplosiveBlockBuilder;
+	class AArchitecturalEngineer *Engineer;*/
 
 private:
 	float siguientePosicionZ;

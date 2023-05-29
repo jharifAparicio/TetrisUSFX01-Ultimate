@@ -10,6 +10,8 @@
 #include "ExplosiveBlock.h"
 #include "ArchitecturalEngineer.h"
 #include "GenericBlock.h"
+//metodo factory
+#include "ScenarioGenerator.h"
 
 ATetrisUSFX01GameModeBase::ATetrisUSFX01GameModeBase () {
 	 // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -53,20 +55,24 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 			break;
 		}
 	}
-		ExplosiveBlockBuilder = GetWorld ()->SpawnActor<AExplosiveBlock>
-		(AExplosiveBlock::StaticClass ());
-	Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer>
-		(AArchitecturalEngineer::StaticClass ());
-		//Set the Builder for the Engineer and create the buildings
-	Engineer->SetBlockBuilder (ExplosiveBlockBuilder);
-	Engineer->ConstructBlock ();
-	//Get the Engineer's Lodging and Logs the created buildings
-	AGenericBlock* GenericBlock = Engineer->GetGenericBlock ();
-	GenericBlock->BlockCharacteristics();
-	//Destroy the Engineer
-	Engineer->Destroy ();
-	//Destroy the Lodging
-	GenericBlock->Destroy ();
+	
+	//patron factory
+	AEscenarioShop* ScenarioGenerador = GetWorld()->SpawnActor<AScenarioGenerator>(AScenarioGenerator::StaticClass);
+
+	//ExplosiveBlockBuilder = GetWorld ()->SpawnActor<AExplosiveBlock>
+	//	(AExplosiveBlock::StaticClass ());
+	//Engineer = GetWorld ()->SpawnActor<AArchitecturalEngineer>
+	//	(AArchitecturalEngineer::StaticClass ());
+	//	//Set the Builder for the Engineer and create the buildings
+	//Engineer->SetBlockBuilder (ExplosiveBlockBuilder);
+	//Engineer->ConstructBlock ();
+	////Get the Engineer's Lodging and Logs the created buildings
+	//AGenericBlock *GenericBlock = Engineer->GetGenericBlock ();
+	//GenericBlock->BlockCharacteristics ();
+	////Destroy the Engineer
+	//Engineer->Destroy ();
+	////Destroy the Lodging
+	//GenericBlock->Destroy ();
 }
 
 // Called every frame
@@ -76,9 +82,9 @@ void ATetrisUSFX01GameModeBase::Tick (float DeltaTime) {
 
 
 void ATetrisUSFX01GameModeBase::DestroyActorFunction () {
-	//if (SpawnedBlock1 != nullptr) {
-	//  // Displays a red message on the screen for 10 seconds
-	//	GEngine->AddOnScreenDebugMessage (-1, 10, FColor::Red, TEXT ("Actor Block destruido"));
-	//	SpawnedBlock1->Destroy ();
-	//}
+	if (SpawnedBlock1 != nullptr) {
+	  // Displays a red message on the screen for 10 seconds
+		GEngine->AddOnScreenDebugMessage (-1, 10, FColor::Red, TEXT ("Actor Block destruido"));
+		SpawnedBlock1->Destroy ();
+	}
 }
