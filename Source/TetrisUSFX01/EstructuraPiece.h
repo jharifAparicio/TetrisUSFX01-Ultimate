@@ -26,6 +26,7 @@ public:
 	class USceneComponent* SceneComponent;
 
 	void Rotar() PURE_VIRTUAL(AEstructuraPiece::Rotar,);
+	void CambiarColor() PURE_VIRTUAL(AEstructuraPiece::CambiarColor,);
 
 protected:
 	TArray<ABlock*> Blocks;

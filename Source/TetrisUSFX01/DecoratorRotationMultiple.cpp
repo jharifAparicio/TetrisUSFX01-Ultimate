@@ -5,16 +5,13 @@
 #include "Block.h"
 
 ADecoratorRotationMultiple::ADecoratorRotationMultiple () {
-	AcumulatedTime = 0.0f;
+	//AcumulatedTime = 0.0f;
 }
 
 void ADecoratorRotationMultiple::Rotar () {
 	UE_LOG (LogTemp, Warning, TEXT ("now can rotate Estructura multirotacional"));
 	FRotator NewRotation = this->GetActorRotation () + FRotator (-1.0, 0.0, 0.0);
 	this->SetActorRelativeRotation (NewRotation);
-}
-
-void ADecoratorRotationMultiple::SpawnBlocks () {
 }
 
 void ADecoratorRotationMultiple::Tick (float DeltaTime) {

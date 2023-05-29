@@ -28,9 +28,14 @@ public:
 
 	virtual void Rotar ();
 	virtual void SpawnBlocks ();
+
+	virtual void CambiarColor ();
+
 	void SetEstructura (AEstructuraPiece* _Estructura) {
 		Estructura = _Estructura;
 	}
+
+	UStaticMeshComponent* EstructuraMesh;
 
 private:
 	AEstructuraPiece* Estructura;

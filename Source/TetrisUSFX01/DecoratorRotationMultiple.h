@@ -17,7 +17,6 @@ public:
 	ADecoratorRotationMultiple ();
 
 	virtual void Rotar () override;
-	virtual void SpawnBlocks () override;
 
 	virtual void Tick (float DeltaTime) override;
 

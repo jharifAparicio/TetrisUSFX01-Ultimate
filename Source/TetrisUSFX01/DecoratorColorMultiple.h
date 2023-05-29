@@ -14,4 +14,13 @@ class TETRISUSFX01_API ADecoratorColorMultiple : public ADecorator
 {
 	GENERATED_BODY()
 	
+public:
+	// Sets default values for this actor's properties
+	ADecoratorColorMultiple();
+
+	void CambiarColor() override;
+
+	void Tick(float DeltaTime) override;
+
+	TArray<class UMaterial *> Colors;
 };

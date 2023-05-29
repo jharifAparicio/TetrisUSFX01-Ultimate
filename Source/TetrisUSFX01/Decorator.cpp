@@ -22,3 +22,7 @@ void ADecorator::Rotar () {
 void ADecorator::SpawnBlocks () {
 	//Estructura->SpawnBlocks ();
 }
+
+void ADecorator::CambiarColor () {
+	Estructura->CambiarColor ();
+}

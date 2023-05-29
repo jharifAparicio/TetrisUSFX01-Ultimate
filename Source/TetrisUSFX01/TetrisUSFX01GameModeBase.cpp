@@ -10,8 +10,6 @@
 #include "ExplosiveBlock.h"
 #include "ArchitecturalEngineer.h"
 #include "GenericBlock.h"
-//metodo factory
-#include "ScenarioGenerator.h"
 
 ATetrisUSFX01GameModeBase::ATetrisUSFX01GameModeBase () {
 	 // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -55,9 +53,6 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 			break;
 		}
 	}
-	
-	//patron factory
-	AEscenarioShop* ScenarioGenerador = GetWorld()->SpawnActor<AScenarioGenerator>(AScenarioGenerator::StaticClass);
 
 	//ExplosiveBlockBuilder = GetWorld ()->SpawnActor<AExplosiveBlock>
 	//	(AExplosiveBlock::StaticClass ());
