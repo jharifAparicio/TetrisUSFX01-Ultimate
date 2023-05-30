@@ -23,7 +23,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual AScenaries* MakerScenaries (FString ScenariesSKU) PURE_VIRTUAL(AScenariesShop::MakerScenaries, return nullptr;);
+	AScenaries* MakerScenaries (FString ScenariesSKU) PURE_VIRTUAL(AScenariesShop::MakerScenaries, return nullptr;);
 
 	AScenaries* SortStage (FString Category);
 };

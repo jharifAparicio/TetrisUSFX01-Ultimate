@@ -22,7 +22,8 @@ void AScenariesShop::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-AScenaries *SortStage (FString Category) {
+AScenaries *AScenariesShop::SortStage (FString Category) {
+
 	AScenaries* Scenaries = MakerScenaries(Category);
 	GEngine->AddOnScreenDebugMessage (-1, 15.f, FColor::Yellow, FString::Printf (TEXT ("Creando %s"),* Scenaries->GetNameScenary()));
 	

@@ -11,6 +11,9 @@
 #include "ArchitecturalEngineer.h"
 #include "GenericBlock.h"
 
+#include "ScenariesShop01.h"
+#include "ScenariesShop02.h"
+
 ATetrisUSFX01GameModeBase::ATetrisUSFX01GameModeBase () {
 	 // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -68,6 +71,20 @@ void ATetrisUSFX01GameModeBase::BeginPlay () {
 	//Engineer->Destroy ();
 	////Destroy the Lodging
 	//GenericBlock->Destroy ();
+
+
+	////Factory_Method
+
+	//GetWorld()->SpawnActor<AFactoryMethod_Main>(AFactoryMethod_Main::StaticClass());
+
+	////Haciendo aparecer los generadores de escenarios
+	//AEscenarioShop* EscenarioShop_1 = GetWorld() -> SpawnActor<AEscenarioShop_1>(AEscenarioShop_1::StaticClass());
+	//AEscenarioShop* EscenarioShop_2 = GetWorld()->SpawnActor<AEscenarioShop_2>(AEscenarioShop_2::StaticClass());
+
+
+	////Definiendo los escenarios
+	//AEscenario* Escenario = EscenarioShop_1->OrdenarEscenario("Escenario_3");
+	//GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow,FString::Printf(TEXT("El escenario es %s"),*Escenario->GetNombreEscenario()));
 }
 
 // Called every frame

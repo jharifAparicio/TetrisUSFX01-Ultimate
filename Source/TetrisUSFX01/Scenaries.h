@@ -25,7 +25,7 @@ public:
 
 protected:
 	FString NameScenary;
-	FString Estructure;
+	FString Structure;
 	FString Position;
 	TArray<FString> Material;
 
