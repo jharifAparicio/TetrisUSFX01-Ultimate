@@ -3,14 +3,18 @@
 
 #include "ScenariesShop02.h"
 
+#include "Scenary01.h"
+#include "Scenary02.h"
+#include "Scenary03.h"
+
 AScenaries *AScenariesShop02::MakerScenaries (FString ScenariesSKU) {
 	if (ScenariesSKU.Equals ("Escenario_1")) {
-		return GetWorld ()->SpawnActor<AScenary_1> (AScenary_1::StaticClass ());
+		return GetWorld ()->SpawnActor<AScenary01> (AScenary01::StaticClass ());
 	} else
 		if (ScenariesSKU.Equals ("Escenario_2")) {
-			return GetWorld ()->SpawnActor<AScenary_2> (AScenary_2::StaticClass ());
+			return GetWorld ()->SpawnActor<AScenary02> (AScenary02::StaticClass ());
 		} else
 			if (ScenariesSKU.Equals ("Escenario_3")) {
-				return GetWorld ()->SpawnActor<AScenary_3> (AScenary_3::StaticClass ());
+				return GetWorld ()->SpawnActor<AScenary03> (AScenary03::StaticClass ());
 			} else return nullptr;
 }
